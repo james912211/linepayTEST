@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <% Object.keys(orders).forEach(orderId => { %>
+    <div>
+      <h2>訂單 #<%= orderId %></h2>
+      <p>
+        金額： <%= orders[orderId].amount %> <%= orders[orderId].currency %>
+      </p>
+      <p>名稱： <%= orders[orderId].packages[0].products[0].name %></p>
+      <a href="/checkout/<%= orderId %>">結帳此商品</a>
+      <!-- 這裡可以訪問訂單的其他屬性，以及進一步遍歷包裹和產品 -->
+    </div>
+    <% }); %>
+  </body>
+</html>
